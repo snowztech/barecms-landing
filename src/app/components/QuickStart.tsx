@@ -1,46 +1,40 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Check, Clipboard } from 'lucide-react'
+import { useState } from "react";
+import { Check, Clipboard } from "lucide-react";
 
 const steps = [
   {
-    step: '1',
-    title: 'Create project directory',
-    command: 'mkdir barecms-app && cd barecms-app'
+    step: "1",
+    title: "Create project directory",
+    command: "mkdir barecms-app && cd barecms-app",
   },
   {
-    step: '2',
-    title: 'Create environment file',
-    command: `cat > .env << EOF
-JWT_SECRET=your-super-secret-jwt-key-here
-POSTGRES_USER=barecms_user
-POSTGRES_PASSWORD=your-secure-password
-POSTGRES_DB=barecms_db
-DATABASE_URL=postgresql://barecms_user:your-secure-password@postgres:5432/barecms_db
-PORT=8080
-EOF`
+    step: "2",
+    title: "Setup environment file",
+    command: `curl -sSL https://raw.githubusercontent.com/snowztech/barecms/main/deploy/.env.template | sed "s/gen_jwt_secret/$(openssl rand -base64 32)/" > .env`,
   },
   {
-    step: '3',
-    title: 'Download docker-compose.yml',
-    command: 'curl -o docker-compose.yml https://raw.githubusercontent.com/snowztech/barecms/main/docker-compose.yml'
+    step: "3",
+    title: "Download docker-compose.yml",
+    command:
+      "curl -o docker-compose.yml https://raw.githubusercontent.com/snowztech/barecms/main/deploy/docker-compose.yml",
   },
   {
-    step: '4',
-    title: 'Launch BareCMS',
-    command: 'docker-compose up -d'
-  }
-]
+    step: "4",
+    title: "Launch BareCMS",
+    command: "docker compose up -d",
+  },
+];
 
 export default function QuickStart() {
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const copyCommand = (command: string, index: number) => {
-    navigator.clipboard.writeText(command)
-    setCopiedIndex(index)
-    setTimeout(() => setCopiedIndex(null), 2000)
-  }
+    navigator.clipboard.writeText(command);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
 
   return (
     <section id="quickstart" className="py-20 lg:py-32 bg-base-200/50">
@@ -50,7 +44,8 @@ export default function QuickStart() {
             Up and running in 2 minutes
           </h2>
           <p className="text-lg text-bare-600 max-w-2xl mx-auto">
-            Get BareCMS running locally with Docker. No complex setup, no configuration hell.
+            Get BareCMS running locally with Docker. No complex setup, no
+            configuration hell.
           </p>
         </div>
 
@@ -96,5 +91,5 @@ export default function QuickStart() {
         </div>
       </div>
     </section>
-  )
+  );
 }

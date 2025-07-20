@@ -1,66 +1,69 @@
-import type { Metadata } from 'next'
-import { Inter, Space_Grotesk, IBM_Plex_Mono } from 'next/font/google'
-import './globals.css'
-import { ThemeProvider } from '@/app/components/ThemeProvider'
+import type { Metadata } from "next";
+import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/app/components/ThemeProvider";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-})
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-ibm-plex-mono',
-})
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-ibm-plex-mono",
+});
 
 export const metadata: Metadata = {
-  title: 'BareCMS - Lightweight Open-Source Headless CMS',
-  description: 'A lightweight, open-source headless CMS designed with bare minimalism in mind.',
+  title: "BareCMS - Lightweight Open-Source Headless CMS",
+  description:
+    "A lightweight, open-source headless CMS designed with bare minimalism in mind.",
   keywords: [
-    'headless cms',
-    'open source',
-    'lightweight cms',
-    'minimalist cms',
-    'content management',
-    'api first',
-    'barecms',
-    'go',
-    'react',
-    'docker'
+    "headless cms",
+    "open source",
+    "lightweight cms",
+    "minimalist cms",
+    "content management",
+    "api first",
+    "barecms",
+    "go",
+    "react",
+    "docker",
   ],
-  authors: [{ name: 'SnowzTech', url: 'https://github.com/snowztech' }],
-  creator: 'SnowzTech',
-  publisher: 'SnowzTech',
-  applicationName: 'BareCMS',
-  category: 'technology',
-  classification: 'Content Management System',
+  authors: [{ name: "SnowzTech", url: "https://github.com/snowztech" }],
+  creator: "SnowzTech",
+  publisher: "SnowzTech",
+  applicationName: "BareCMS",
+  category: "technology",
+  classification: "Content Management System",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://barecms.dev',
-    siteName: 'BareCMS',
-    title: 'BareCMS - Lightweight Open-Source Headless CMS',
-    description: 'A lightweight, open-source headless CMS designed with bare minimalism in mind.',
+    type: "website",
+    locale: "en_US",
+    url: "https://barecms.dev",
+    siteName: "BareCMS",
+    title: "BareCMS - Lightweight Open-Source Headless CMS",
+    description:
+      "A lightweight, open-source headless CMS designed with bare minimalism in mind.",
     images: [
       {
-        url: '/logo.png',
+        url: "/logo-inline.png",
         width: 1200,
         height: 630,
-        alt: 'BareCMS Logo',
+        alt: "BareCMS Logo",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'BareCMS - Lightweight Open-Source Headless CMS',
-    description: 'A lightweight, open-source headless CMS designed with bare minimalism in mind.',
-    images: ['/logo.png'],
+    card: "summary_large_image",
+    title: "BareCMS - Lightweight Open-Source Headless CMS",
+    description:
+      "A lightweight, open-source headless CMS designed with bare minimalism in mind.",
+    images: ["/logo-inline.png"],
   },
   robots: {
     index: true,
@@ -68,23 +71,23 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: "your-google-verification-code",
   },
   alternates: {
-    canonical: 'https://barecms.dev',
+    canonical: "https://barecms.dev",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -94,11 +97,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#6b7770" />
         <meta name="msapplication-TileColor" content="#6b7770" />
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable} font-sans antialiased`}
+      >
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
