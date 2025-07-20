@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Clipboard, Check } from "lucide-react";
+
 const apiExample = {
   endpoint: "GET /api/myblog/data",
   response: {
@@ -58,86 +59,91 @@ export default function APIShowcase() {
   };
 
   return (
-    <section id="api" className="py-20 lg:py-32">
-      <div className="container-bare">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section id="api" className="py-12 sm:py-16 lg:py-32">
+      <div className="container-bare px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start lg:items-center">
           {/* Content */}
-          <div className="space-y-6">
-            <h2 className="text-display text-3xl lg:text-4xl font-bold text-base-content">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-display text-2xl sm:text-3xl lg:text-4xl font-bold text-base-content leading-tight">
               Simple, predictable APIs
             </h2>
-            <p className="text-lg text-bare-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-bare-600 leading-relaxed">
               One endpoint gives you all your content. No complex queries, no
               GraphQL learning curve. Just clean, RESTful APIs that make sense.
             </p>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-bare-600">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-start sm:items-center gap-2 sm:gap-3">
+                <div className="w-2 h-2 bg-success rounded-full mt-2 sm:mt-0 flex-shrink-0"></div>
+                <span className="text-sm sm:text-base text-bare-600 leading-relaxed">
                   Public data access without authentication
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-bare-600">
+              <div className="flex items-start sm:items-center gap-2 sm:gap-3">
+                <div className="w-2 h-2 bg-success rounded-full mt-2 sm:mt-0 flex-shrink-0"></div>
+                <span className="text-sm sm:text-base text-bare-600 leading-relaxed">
                   Flat data structure for easy consumption
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-bare-600">
+              <div className="flex items-start sm:items-center gap-2 sm:gap-3">
+                <div className="w-2 h-2 bg-success rounded-full mt-2 sm:mt-0 flex-shrink-0"></div>
+                <span className="text-sm sm:text-base text-bare-600 leading-relaxed">
                   Works with any frontend framework
                 </span>
               </div>
             </div>
 
-            <div className="pt-4">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded text-sm font-mono">
+            <div className="pt-2 sm:pt-4">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded text-xs sm:text-sm font-mono break-all sm:break-normal">
                 {apiExample.endpoint}
               </div>
             </div>
           </div>
 
           {/* Code Examples */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 w-full min-w-0">
             {/* API Response */}
-            <div className="card-bare p-0 overflow-hidden">
-              <div className="bg-base-200 px-4 py-3 border-b border-bare-200">
-                <div className="text-sm font-medium text-base-content">
+            <div className="card-bare p-0 overflow-hidden w-full">
+              <div className="bg-base-200 px-3 sm:px-4 py-2 sm:py-3 border-b border-bare-200">
+                <div className="text-xs sm:text-sm font-medium text-base-content">
                   API Response
                 </div>
               </div>
-              <div className="p-4">
-                <pre className="text-sm overflow-x-auto">
-                  <code className="text-bare-600">
-                    {JSON.stringify(apiExample.response, null, 2)}
-                  </code>
-                </pre>
+              <div className="p-3 sm:p-4 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <pre className="text-xs sm:text-sm whitespace-pre-wrap sm:whitespace-pre min-w-0">
+                    <code className="text-bare-600 break-words sm:break-normal">
+                      {JSON.stringify(apiExample.response, null, 2)}
+                    </code>
+                  </pre>
+                </div>
               </div>
             </div>
 
             {/* Usage Example */}
-            <div className="card-bare p-0 overflow-hidden">
-              <div className="bg-base-200 px-4 py-3 border-b border-bare-200 flex items-center justify-between">
-                <div className="text-sm font-medium text-base-content">
+            <div className="card-bare p-0 overflow-hidden w-full">
+              <div className="bg-base-200 px-3 sm:px-4 py-2 sm:py-3 border-b border-bare-200 flex items-center justify-between">
+                <div className="text-xs sm:text-sm font-medium text-base-content">
                   Usage Example
                 </div>
                 <button
                   onClick={copyToClipboard}
-                  className="btn btn-ghost btn-xs"
+                  className="btn btn-ghost btn-xs sm:btn-sm p-1 sm:p-2 min-h-0 h-auto"
+                  aria-label="Copy code to clipboard"
                 >
                   {copied ? (
-                    <Check className="w-4 h-4 text-success" />
+                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-success" />
                   ) : (
-                    <Clipboard className="w-4 h-4" />
+                    <Clipboard className="w-3 h-3 sm:w-4 sm:h-4" />
                   )}
                 </button>
               </div>
-              <div className="p-4">
-                <pre className="text-sm overflow-x-auto">
-                  <code className="text-bare-600">{codeExample}</code>
-                </pre>
+              <div className="p-3 sm:p-4 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <pre className="text-xs sm:text-sm whitespace-pre min-w-0">
+                    <code className="text-bare-600">{codeExample}</code>
+                  </pre>
+                </div>
               </div>
             </div>
           </div>
