@@ -101,7 +101,7 @@ body[data-theme="barecms-dark"] {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-/* Hero gradient - Fixed to use correct DaisyUI color names */
+/* Hero gradient */
 .hero-gradient {
   background: linear-gradient(135deg, theme('colors.base-100') 0%, theme('colors.base-200') 100%);
 }
@@ -116,7 +116,7 @@ body[data-theme="barecms-dark"] {
   white-space: pre-wrap;
 }
 
-/* Dark mode improvements */
+/* Dark mode component improvements */
 [data-theme="barecms-dark"] .btn-bare {
   @apply bg-transparent border-bare-600 text-bare-200 hover:bg-bare-800 hover:border-bare-500 hover:text-bare-100;
 }
@@ -131,4 +131,32 @@ body[data-theme="barecms-dark"] {
 
 [data-theme="barecms-dark"] .code-block {
   @apply bg-base-200 border-bare-700 text-base-content;
+}
+
+/* Dark mode text utilities - proper Tailwind approach */
+@layer utilities {
+  [data-theme="barecms-dark"] .text-bare-600 {
+    color: #e5e5e5;
+  }
+
+  [data-theme="barecms-dark"] .text-bare-700 {
+    color: #f5f5f5;
+  }
+
+  [data-theme="barecms-dark"] .text-bare-500 {
+    color: #d4d4d4;
+  }
+
+  [data-theme="barecms-dark"] .text-bare-400 {
+    color: #e5e5e5;
+  }
+
+  [data-theme="barecms-dark"] pre,
+  [data-theme="barecms-dark"] code {
+    color: #e5e5e5;
+  }
+
+  [data-theme="barecms-dark"] .text-bare-600 code {
+    color: #d4d4d4;
+  }
 }

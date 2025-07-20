@@ -23,11 +23,22 @@ const config: Config = {
           300: '#d4d4d4',
           400: '#a3a3a3',
           500: '#737373',
-          600: '#525252',
+          600: '#525252', // Light mode
           700: '#404040',
           800: '#262626',
           900: '#171717',
           950: '#0a0a0a',
+          // Dark mode specific colors
+          'dark-50': '#262626',
+          'dark-100': '#404040',
+          'dark-200': '#525252',
+          'dark-300': '#737373',
+          'dark-400': '#a3a3a3',
+          'dark-500': '#d4d4d4',
+          'dark-600': '#e5e5e5', // Much lighter for dark mode
+          'dark-700': '#f5f5f5',
+          'dark-800': '#fafafa',
+          'dark-900': '#ffffff',
         },
         'accent': {
           50: '#f8faf9',
