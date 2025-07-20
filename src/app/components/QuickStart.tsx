@@ -85,7 +85,16 @@ export default function QuickStart() {
           <div className="text-center mt-8">
             <div className="inline-flex items-center gap-2 bg-success/10 text-success px-4 py-2 rounded-full text-sm font-medium">
               <Check className="w-4 h-4" />
-              BareCMS running at http://localhost:8080
+              <span>
+                BareCMS running at
+                <a
+                  href="http://localhost:8080"
+                  target="_blank"
+                  className="text-success hover:underline ml-1"
+                >
+                  localhost:8080
+                </a>
+              </span>
             </div>
           </div>
         </div>

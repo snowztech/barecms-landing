@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Clipboard, Check } from 'lucide-react'
+import { useState } from "react";
+import { Clipboard, Check } from "lucide-react";
 const apiExample = {
-  endpoint: 'GET /api/myblog/data',
+  endpoint: "GET /api/myblog/data",
   response: {
     id: "44394f36-daa3-451c-970f-59238c46ce36",
     name: "myblog",
@@ -14,26 +14,27 @@ const apiExample = {
           content: "this is my article post content",
           draft: "false",
           published: "2025-07-21",
-          title: "my sample article"
-        }
+          title: "my sample article",
+        },
       ],
       products: [
         {
           name: "Sample Product",
           price: "29.99",
-          description: "A great product for everyone"
-        }
-      ]
-    }
-  }
-}
+          description: "A great product for everyone",
+        },
+      ],
+    },
+  },
+};
 
 const codeExample = `const barecmsHost = "http://localhost:8080";
 
 // Fetch all data for a site
 async function fetchSiteData(siteSlug) {
   try {
-    const response = await fetch(\`\${barecmsHost}/api/\${siteSlug}/data\`);
+    const url = \`\${barecmsHost}/api/\${siteSlug}/data\`;
+    const response = await fetch(url);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -45,16 +46,16 @@ async function fetchSiteData(siteSlug) {
 fetchSiteData("my-blog").then((data) => {
   console.log(data.data.articles); // Access your articles
   console.log(data.data.products); // Access your products
-});`
+});`;
 
 export default function APIShowcase() {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(codeExample)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    navigator.clipboard.writeText(codeExample);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section id="api" className="py-20 lg:py-32">
@@ -66,22 +67,28 @@ export default function APIShowcase() {
               Simple, predictable APIs
             </h2>
             <p className="text-lg text-bare-600 leading-relaxed">
-              One endpoint gives you all your content. No complex queries, no GraphQL learning curve.
-              Just clean, RESTful APIs that make sense.
+              One endpoint gives you all your content. No complex queries, no
+              GraphQL learning curve. Just clean, RESTful APIs that make sense.
             </p>
 
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-bare-600">Public data access without authentication</span>
+                <span className="text-bare-600">
+                  Public data access without authentication
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-bare-600">Flat data structure for easy consumption</span>
+                <span className="text-bare-600">
+                  Flat data structure for easy consumption
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-bare-600">Works with any frontend framework</span>
+                <span className="text-bare-600">
+                  Works with any frontend framework
+                </span>
               </div>
             </div>
 
@@ -97,7 +104,9 @@ export default function APIShowcase() {
             {/* API Response */}
             <div className="card-bare p-0 overflow-hidden">
               <div className="bg-base-200 px-4 py-3 border-b border-bare-200">
-                <div className="text-sm font-medium text-base-content">API Response</div>
+                <div className="text-sm font-medium text-base-content">
+                  API Response
+                </div>
               </div>
               <div className="p-4">
                 <pre className="text-sm overflow-x-auto">
@@ -111,7 +120,9 @@ export default function APIShowcase() {
             {/* Usage Example */}
             <div className="card-bare p-0 overflow-hidden">
               <div className="bg-base-200 px-4 py-3 border-b border-bare-200 flex items-center justify-between">
-                <div className="text-sm font-medium text-base-content">Usage Example</div>
+                <div className="text-sm font-medium text-base-content">
+                  Usage Example
+                </div>
                 <button
                   onClick={copyToClipboard}
                   className="btn btn-ghost btn-xs"
@@ -125,9 +136,7 @@ export default function APIShowcase() {
               </div>
               <div className="p-4">
                 <pre className="text-sm overflow-x-auto">
-                  <code className="text-bare-600">
-                    {codeExample}
-                  </code>
+                  <code className="text-bare-600">{codeExample}</code>
                 </pre>
               </div>
             </div>
@@ -135,5 +144,5 @@ export default function APIShowcase() {
         </div>
       </div>
     </section>
-  )
+  );
 }
