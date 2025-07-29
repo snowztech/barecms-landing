@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "A lightweight, open-source headless CMS designed with bare minimalism in mind.",
     images: [
       {
-        url: "/logo-inline.svg",
+        url: "/logo-inline.png",
         width: 1200,
         height: 630,
         alt: "BareCMS Logo",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "BareCMS - Lightweight Open-Source Headless CMS",
     description:
       "A lightweight, open-source headless CMS designed with bare minimalism in mind.",
-    images: ["/logo-inline.svg"],
+    images: ["/logo-inline.png"],
   },
   robots: {
     index: true,
