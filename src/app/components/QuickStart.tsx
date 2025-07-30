@@ -12,7 +12,8 @@ const steps = [
   {
     step: "2",
     title: "Setup environment file",
-    command: `curl -sSL https://raw.githubusercontent.com/snowztech/barecms/main/deploy/.env.template | sed "s/gen_jwt_secret/$(openssl rand -base64 32)/" > .env`,
+    command: `curl -sSL https://raw.githubusercontent.com/snowztech/barecms/main/deploy/.env.template | \
+sed "s|gen_jwt_secret|$(openssl rand -base64 32)|" > .env`,
   },
   {
     step: "3",
